@@ -173,10 +173,10 @@ export default function Home() {
           <img
             src="/images/hero_college_bg.jpg"
             alt="College Campus"
-            className="w-full h-full object-cover opacity-25 dark:opacity-15 scale-105 gpu-layer"
+            className="w-full h-full object-cover opacity-55 dark:opacity-40 scale-105 gpu-layer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)] opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)] opacity-85" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)] opacity-45" />
         </div>
 
         {/* Soft Ambient Spotlight Radial Glow behind Heading */}
