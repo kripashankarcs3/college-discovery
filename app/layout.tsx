@@ -94,8 +94,8 @@ function Footer() {
             <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
               &copy; {new Date().getFullYear()} College Discovery. All rights reserved.
             </p>
-            <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-              Built for the next generation of scholars.
+            <p className="text-xs inline-flex items-center gap-1" style={{ color: 'var(--text-muted)' }}>
+              Made with <span className="text-red-500 animate-pulse">❤️</span> in India for scholars.
             </p>
           </div>
         </div>

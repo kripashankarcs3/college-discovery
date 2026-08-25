@@ -113,3 +113,9 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+<p align="center">
+  Made with ❤️ in India for Scholars & Future Leaders
+</p>
