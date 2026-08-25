@@ -1,0 +1,14 @@
+node_modules
+.next
+dist
+env.local
+.env.local
+*.log
+*.err
+*.out
+*.tsbuildinfo
+__pycache__/
+*.pyc
+.vscode/
+.kilo/
+.blackbox/

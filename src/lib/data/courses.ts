@@ -1,0 +1,1 @@
+export { allCourses } from './colleges'

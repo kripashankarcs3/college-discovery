@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2f3e46"/>
+      <stop offset="100%" style="stop-color:#cad2c5"/>
+    </linearGradient>
+    <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse" opacity="0.06">
+      <circle cx="20" cy="20" r="1.5" fill="white"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#grad)"/>
+  <rect width="1200" height="675" fill="url(#dots)"/>
+  <text x="600" y="317.5" text-anchor="middle" dominant-baseline="central"
+    font-family="Georgia,serif" font-size="180" font-weight="bold" fill="rgba(255,255,255,0.08)"
+    letter-spacing="8">NU</text>
+  <text x="600" y="387.5" text-anchor="middle" dominant-baseline="central"
+    font-family="system-ui,sans-serif" font-size="36" font-weight="600" fill="rgba(255,255,255,0.5)"
+    letter-spacing="4" text-transform="uppercase">CAMPUS</text>
+  <text x="1170" y="645" text-anchor="end"
+    font-family="system-ui,sans-serif" font-size="14" fill="rgba(255,255,255,0.2)">Navrachana Univ</text>
+</svg>
