@@ -104,19 +104,8 @@ function ParticleField() {
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none gpu-layer" style={{ maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)' }} />
 }
 
-function ScrollReveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
-    >
-      {children}
-    </motion.div>
-  )
+function ScrollReveal({ children }: { children: React.ReactNode; delay?: number }) {
+  return <div>{children}</div>
 }
 
 function AnimatedCounter({ end, suffix = '' }: { end: number; suffix?: string }) {
@@ -136,17 +125,14 @@ function AnimatedCounter({ end, suffix = '' }: { end: number; suffix?: string })
     return () => clearInterval(timer)
   }, [isInView, end])
 
-  return <span ref={ref}>{count}{suffix}</span>
-}
-
-const categoryIcons: Record<string, string> = {
-  Engineering: '🔬', Management: '📊', Medical: '🏥', 'Liberal Arts': '📚', Law: '⚖️', Science: '🧪', Commerce: '💰', Design: '🎨',
+  return (
+    <span ref={ref}>
+      {count.toLocaleString('en-US')}{suffix}
+    </span>
+  )
 }
 
 export default function Home() {
-  const { scrollYProgress } = useScroll()
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0])
-  const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.98])
   const allColleges = getAllColleges()
   const topColleges = [...allColleges].sort((a, b) => b.rating - a.rating).slice(0, 8)
   const [searchQuery, setSearchQuery] = useState('')
@@ -167,27 +153,29 @@ export default function Home() {
   return (
     <main className="relative overflow-hidden" style={{ backgroundColor: 'var(--bg-primary)' }}>
       {/* Hero Section */}
-      <motion.section style={{ opacity: heroOpacity, scale: heroScale }} className="relative pt-4 pb-12 sm:pt-6 sm:pb-16 lg:pt-8 lg:pb-20 overflow-hidden">
+      <section className="relative pt-4 pb-12 sm:pt-6 sm:pb-16 lg:pt-8 lg:pb-20 overflow-hidden">
         {/* Relatable College Campus Image Background */}
-        <div className="absolute inset-0 -z-20 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img
             src="/images/hero_college_bg.jpg"
             alt="College Campus"
-            className="w-full h-full object-cover opacity-55 dark:opacity-40 scale-105 gpu-layer"
+            className="w-full h-full object-cover opacity-70 dark:opacity-50 scale-100 gpu-layer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)] opacity-85" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)] opacity-45" />
+          {/* Subtle edge vignette overlay */}
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[var(--bg-primary)] to-transparent opacity-90" />
+          <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[var(--bg-primary)] to-transparent opacity-95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)] opacity-40" />
         </div>
 
         {/* Soft Ambient Spotlight Radial Glow behind Heading */}
-        <div className="absolute inset-0 -z-10 pointer-events-none flex items-center justify-center">
+        <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
           <div
             className="w-[46rem] h-[26rem] rounded-full blur-[100px] opacity-35 dark:opacity-25"
             style={{ background: 'radial-gradient(circle, rgba(79,70,229,0.35) 0%, rgba(37,99,235,0.18) 45%, transparent 75%)' }}
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="relative">
             <ParticleField />
 
@@ -316,7 +304,7 @@ export default function Home() {
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-transparent to-transparent pointer-events-none" style={{ background: 'linear-gradient(to top, var(--bg-primary), transparent)' }} />
-      </motion.section>
+      </section>
 
       {/* Top Colleges */}
       <section className="relative py-20 sm:py-24">
